@@ -11,7 +11,7 @@ angular.module('hearthifyApp')
   .controller('MainCtrl', mainCtrl);
 
 
-function mainCtrl(hearthApi) {
+function mainCtrl(hearthApi,$scope) {
   /* jshint validthis:true */
   var vm = this;
   vm.title = 'Controller';
@@ -23,10 +23,10 @@ function mainCtrl(hearthApi) {
 
   function activate() {
     hearthApi.getInfo();
-
   }
   function imgLoaded(){
     vm.imgIsLoaded = true;
+    $scope.$apply();
   }
 
   function queryCards(query) {
