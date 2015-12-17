@@ -2,16 +2,25 @@
 
 /**
  * @ngdoc function
- * @name hearthifyApp.controller:MainCtrl
+ * @name ctbookApp.controller:ContratoCtrl
  * @description
- * # MainCtrl
- * Controller of the hearthifyApp
+ * # ContratoCtrl
+ * Controller of the ctbookApp
  */
 angular.module('hearthifyApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('MainCtrl', mainCtrl);
+
+function mainCtrl() {
+  /* jshint validthis: true */
+  var vm = this;
+
+  vm.load = load;
+
+  vm.load();
+
+  function load() {
+
+  }
+
+
+}
