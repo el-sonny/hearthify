@@ -14,27 +14,5 @@ angular.module('hearthifyApp')
 function mainCtrl(hearthApi,$scope) {
   /* jshint validthis:true */
   var vm = this;
-  vm.title = 'Controller';
-  vm.queryCards = queryCards;
-  vm.selectCard = selectCard;
-  vm.imgLoaded = imgLoaded;
 
-  activate();
-
-  function activate() {
-    hearthApi.getInfo();
-  }
-  function imgLoaded(){
-    vm.imgIsLoaded = true;
-    $scope.$apply();
-  }
-
-  function queryCards(query) {
-    return hearthApi.search(query);
-  }
-
-  function selectCard(card){
-    vm.imgIsLoaded = false;
-    vm.selectedCard = card;
-  }
 }
