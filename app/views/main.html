@@ -5,13 +5,13 @@
     </h2>
     <span flex></span>
     <md-menu md-offset='0 45'>
-      <md-button aria-label="Open phone interactions menu" class="md-raised" ng-click="vm.openMenu($mdOpenMenu, $event)">
+      <md-button aria-label="Open player class interactions menu" class="md-raised" ng-click="vm.openMenu($mdOpenMenu, $event)">
         <span md-menu-origin>Selected Class : {{vm.selectedClass}}</span>
       </md-button>
       <md-menu-content width="3">
-        <md-menu-item ng-repeat='class in vm.info.classes'>
+        <md-menu-item ng-repeat='class in vm.classes'>
           <md-button ng-click="vm.selectClass(class)">
-            {{class}}
+            {{class.name}}
           </md-button>
         </md-menu-item>
       </md-menu-content>
@@ -24,10 +24,10 @@
   <h2>Select Class</h2>
 </md-content>
 <md-content class='md-padding' layout='row' layout-wrap layout-align='center center'>
-  <div class='player-class' ng-repeat='class in vm.info.classes' ng-class="{selected : vm.selectedClass === class}" >
-    <md-button ng-click='vm.selectClass(class)' md-class='md-fab' aria-label='Select {{class}}'>
-      <img ng-src='/images/player-classes/{{class}}.jpg' />
-      <p>{{class}}</p>
+  <div class='player-class' ng-repeat='class in vm.classes' ng-class="{selected : vm.selectedClass === class}" >
+    <md-button ng-click='vm.selectClass(class)' md-class='md-fab' aria-label='Select {{class.name}}'>
+      <img ng-src='{{class.image}}' />
+      <p>{{class.name}}</p>
     </md-button>
   </div>
 </md-content>
