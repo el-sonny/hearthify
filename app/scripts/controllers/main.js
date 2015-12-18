@@ -10,7 +10,7 @@
 angular.module('hearthifyApp')
   .controller('MainCtrl', mainCtrl);
 
-function mainCtrl(hearthApi, deckService) {
+function mainCtrl(deckService,hearthApi) {
   /* jshint validthis:true */
   var vm = this;
 

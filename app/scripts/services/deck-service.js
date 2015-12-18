@@ -8,10 +8,10 @@
  * Service in the hearthifyApp.
  */
 angular.module('hearthifyApp')
-  .service('deckService', Service);
+  .service('deckService', deckService);
 
 
-function Service() {
+function deckService() {
   /* jshint validthis: true */
   var deck = this;
 

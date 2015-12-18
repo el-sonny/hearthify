@@ -8,9 +8,9 @@
  * Service in the hearthifyApp.
  */
 angular.module('hearthifyApp')
-  .service('listService', Service);
+  .service('listService', listService);
 
-function Service($http, $q) {
+function listService($http, $q) {
   /* jshint validthis: true */
   var service = this;
 

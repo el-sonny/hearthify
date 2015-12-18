@@ -7,12 +7,12 @@
  * # imageonload
  */
 angular.module('hearthifyApp')
-  .directive('imageonload', directive);
+  .directive('imageonload', imageonload);
 
-//directive.$inject = ['dependencies'];
+//imageonload.$inject = ['dependencies'];
 
 /* @ngInject */
-function directive() {
+function imageonload() {
   // Usage:
   //
   // Creates:

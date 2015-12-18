@@ -9,9 +9,9 @@
  */
 angular
   .module('hearthifyApp')
-  .service('hearthApi', Service);
+  .service('hearthApi', hearthApi);
 
-function Service(Restangular, $q) {
+function hearthApi(Restangular, $q) {
   /* jshint validthis: true */
   var service = this;
 

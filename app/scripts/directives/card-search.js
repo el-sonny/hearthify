@@ -7,10 +7,10 @@
  * # cardSearch
  */
 angular.module('hearthifyApp')
-  .directive('cardSearch', directive);
+  .directive('cardSearch', cardSearch);
 
 
-function directive() {
+function cardSearch() {
   return {
     bindToController: true,
     controller: Controller,
