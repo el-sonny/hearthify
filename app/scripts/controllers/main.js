@@ -10,9 +10,16 @@
 angular.module('hearthifyApp')
   .controller('MainCtrl', mainCtrl);
 
-
-function mainCtrl(hearthApi,$scope) {
+function mainCtrl(hearthApi,listService) {
   /* jshint validthis:true */
   var vm = this;
+
+  vm.activate = activate;
+
+
+  activate();
+
+  function activate(){
+  }
 
 }

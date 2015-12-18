@@ -9,10 +9,12 @@ md-autocomplete{width:100%;}
   padding:10px;
   width:100%;
   margin:25px auto;
+  background-color:#eee;
+  font-size: 13px
 }
 .cardbox img{
-  width: 200px;
+  width: 160px;
   height:auto;
   position:relative;
-  top:-20px;
+  top:-17px;
 }
