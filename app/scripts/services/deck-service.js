@@ -21,7 +21,7 @@ function Service() {
 
   function addCard(card) {
     var index = deck.cards.findIndex(function(_card){
-      return _card.cardId == card.cardId;
+      return _card.cardId === card.cardId;
     });
     if(index <= -1){
       card.count = 1;
@@ -30,6 +30,10 @@ function Service() {
     }else{
       deck.cards[index].count += 1;
     }
+  }
+
+  function clearCards(){
+    deck.cards = [];
   }
 
 }
