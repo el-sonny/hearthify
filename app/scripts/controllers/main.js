@@ -10,7 +10,7 @@
 angular.module('hearthifyApp')
   .controller('MainCtrl', mainCtrl);
 
-function mainCtrl(deckService,hearthApi) {
+function mainCtrl(deckService, hearthApi, listService) {
   /* jshint validthis:true */
   var vm = this;
 
@@ -22,14 +22,13 @@ function mainCtrl(deckService,hearthApi) {
 
   vm.info = {};
   vm.searchSlots = [];
-  vm.selectedClass = 'Druid';
+  vm.selectedClass = listService.playerClass;
   vm.deck = deckService.cards;
-
 
   activate();
 
   function activate() {
-    hearthApi.getInfo().then(setInfo);
+    vm.setInfo();
     vm.searchSlots = [{
       index: 1
     }, {
@@ -43,11 +42,11 @@ function mainCtrl(deckService,hearthApi) {
     $mdOpenMenu(ev);
   }
 
-  function chooseCard(card){
+  function chooseCard(card) {
     deckService.addCard(card);
     //console.log(vm.deck);
 
-    vm.searchSlots = vm.searchSlots.map(function(slot){
+    vm.searchSlots = vm.searchSlots.map(function(slot) {
       slot.selected = false;
       slot.searchText = null;
       return slot;
@@ -56,11 +55,14 @@ function mainCtrl(deckService,hearthApi) {
 
   function selectClass(_class) {
     vm.selectedClass = _class;
+    listService.playerClass = _class;
   }
 
-  function setInfo(info) {
-    vm.info = info;
-    return info;
+  function setInfo() {
+    vm.info = {
+      classes: ['Druid', 'Hunter', 'Mage', 'Paladin', 'Priest', 'Rogue', 'Shaman', 'Warlock', 'Warrior']
+    };
+    return vm.info;
   }
 
 }

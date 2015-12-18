@@ -22,7 +22,6 @@ function cardSearch() {
       selectedCard : '=',
       searchText : '=',
       tabIndex : '=',
-      playerClass : '='
     },
     templateUrl: 'views/card-search.html'
   };
@@ -84,7 +83,7 @@ function cardSearch() {
     function selectCard(card) {
       vm.imgIsLoaded = false;
       vm.selectedCard = card;
-      listService.checkCard(card, vm.tierList, vm.playerClass).then(function(result) {
+      listService.checkCard(card, vm.tierList).then(function(result) {
         if (result) {
           vm.selectedCard.value = result[1];
         } else {

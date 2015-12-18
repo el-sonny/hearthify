@@ -31,3 +31,37 @@ md-autocomplete{width:100%;}
   width:110px;
   height:auto;
 }
+.player-class button{
+  overflow: hidden;
+  width:150px;
+  height:150px;
+  border-radius: 50%;
+}
+
+.player-class img{
+  width:200px;
+  height:auto;
+  position:absolute;
+  top:-25px;
+  left:-25px;
+  filter: blur(8px);
+  z-index:0;
+}
+
+.player-class p{
+  color: white;
+  font-weight:bold;
+  font-size:22px;
+  display:block;
+  position: relative;
+  text-shadow:2px 2px 5px #222;
+  z-index:1;
+  transition: opacity 500ms;
+}
+
+.player-class:hover img,.player-class.selected img{
+  filter:blur(0);
+}
+.player-class:hover p,.player-class.selected p{
+  opacity: 0
+}

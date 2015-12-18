@@ -19,23 +19,31 @@ function listService($http, $q) {
   service.loadList = loadList;
 
   service.lists = {};
+  service.playerClass = 'Druid';
   activate();
 
   function activate() {
     service.lists = {
       'hearth-arena': {
         'Druid': [],
-        'Shaman' : []
+        'Shaman' : [],
+        'Mage' : [],
+        'Warlock' : [],
+        'Warrior' : [],
+        'Priest' : [],
+        'Paladin' : [],
+        'Hunter' : [],
+        'Rogue' : []
       }
     };
   }
 
-  function checkCard(card,source,_class){
+  function checkCard(card,source){
     var deferred = $q.defer();
-    var list = service.lists[source][_class];
+    var list = service.lists[source][service.playerClass];
     if(!list.length){
-      service.loadList(source,_class).then(function(){
-        var result = service.checkCard(card,source,_class);
+      service.loadList(source,service.playerClass).then(function(){
+        var result = service.checkCard(card,source);
         deferred.resolve(result);
       });
     }else if(card){
