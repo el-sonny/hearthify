@@ -406,7 +406,7 @@ module.exports = function(grunt) {
     // This is to rewrite base href in gh-pages
     processhtml: {
       options: {
-        commentMarker: "process"
+        commentMarker: 'process'
       },
       dist: {
         files: [{
