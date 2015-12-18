@@ -1,6 +1,24 @@
-<md-content class='md-padding'>
-  <h1>Arena Helper</h1>
-</md-content>
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <h2>
+      <span>Arena Helper</span>
+    </h2>
+    <span flex></span>
+    <md-menu  md-offset='0 45'>
+      <md-button aria-label="Open phone interactions menu" class="md-raised" ng-click="vm.openMenu($mdOpenMenu, $event)">
+        <span md-menu-origin >Class : {{vm.selectedClass}}</span>
+      </md-button>
+      <md-menu-content width="3">
+        <md-menu-item ng-repeat='class in vm.info.classes' >
+          <md-button ng-click="vm.selectClass(class)">
+            {{class}}
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+    <!-- <md-button ng-repeat='class in vm.info.classes' class="md-raised" aria-label="class" ng-bind='class'></md-button> -->
+  </div>
+</md-toolbar>
 <md-divider></md-divider>
 <div layout='row' layout-fill class='md-padding'>
   <div card-search flex></div>

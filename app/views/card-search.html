@@ -29,7 +29,8 @@
       <p><i>{{vm.selectedCard.flavor}}</i></p>
 
     </div>
-    <div>
+    <div class='img-container' layout layout-align='center center'>
+       <md-progress-circular md-mode='indeterminate' ng-show='!vm.imgIsLoaded' md-diameter="120"></md-progress-circular>
       <img ng-src='{{vm.selectedCard.img}}' imageonload loaded='vm.imgLoaded()' ng-show='vm.imgIsLoaded' />
     </div>
   </div>
