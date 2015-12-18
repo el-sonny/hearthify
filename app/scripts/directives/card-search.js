@@ -16,8 +16,14 @@ function directive() {
     controller: Controller,
     controllerAs: 'vm',
     link: link,
-    restrict: 'A',
-    scope: {},
+    restrict: 'EA',
+    scope: {
+      chooseCard: '&',
+      selectedCard : '=',
+      searchText : '=',
+      tabIndex : '=',
+      playerClass : '='
+    },
     templateUrl: 'views/card-search.html'
   };
 
@@ -26,14 +32,22 @@ function directive() {
   function Controller(hearthApi, listService, $scope) {
     /* jshint validthis:true */
     var vm = this;
+    vm.activate = activate;
     vm.getTier = getTier;
     vm.imgLoaded = imgLoaded;
     vm.queryCards = queryCards;
     vm.selectCard = selectCard;
 
+    vm.tierList = 'hearth-arena';
+
+    activate();
+
+    function activate(){
+
+    }
+
     function getTier() {
       if (vm.selectedCard) {
-        var tier = 'Very Bad';
         var value = parseInt(vm.selectedCard.value);
         var tiers = [
           {label:'Amazing',thresh:90,color:'Indigo'},
@@ -46,15 +60,13 @@ function directive() {
           {label:'Terrible',thresh:0,color:'Red'},
         ];
 
-        var tier = tiers.find(function(tier,index){
+        return tiers.find(function(tier,index){
           if(index){
             return value >= tier.thresh && value < tiers[index-1].thresh;
           }else{
             return value >= tier.thresh;
           }
         });
-
-        return tier;
 
       }
 
@@ -72,11 +84,11 @@ function directive() {
     function selectCard(card) {
       vm.imgIsLoaded = false;
       vm.selectedCard = card;
-      listService.checkCard(card, 'hearth-arena', 'druid').then(function(result) {
+      listService.checkCard(card, vm.tierList, vm.playerClass).then(function(result) {
         if (result) {
           vm.selectedCard.value = result[1];
         } else {
-          vm.selectedCard.value = 'no rank found';
+          vm.selectedCard.value = 'n/a';
         }
       });
     }

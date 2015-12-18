@@ -58,6 +58,6 @@
     "angular": false,
     "$": false,
     "d3" : false,
-    "gauss" : true
+    "Papa" : true
   }
 }

@@ -24,9 +24,10 @@ function Service($http, $q) {
   function activate() {
     service.lists = {
       'hearth-arena': {
-        'druid': []
+        'Druid': [],
+        'Shaman' : []
       }
-    }
+    };
   }
 
   function checkCard(card,source,_class){
@@ -39,7 +40,7 @@ function Service($http, $q) {
       });
     }else if(card){
       var result = list.find(function(row){
-        return row[0] === card.name
+        return row[0] === card.name;
       });
       deferred.resolve(result);
     }else{

@@ -1,5 +1,6 @@
 <div layout='column' layout-fill class='md-padding card-search'>
-  <md-autocomplete md-search-text="vm.searchText" md-selected-item-change="vm.selectCard(item)" md-items="item in vm.queryCards(vm.searchText)" md-item-text="item.name" md-min-length="2" md-delay='200' placeholder="card">
+
+  <md-autocomplete md-search-text="vm.searchText" md-selected-item-change="vm.selectCard(item)" md-items="item in vm.queryCards(vm.searchText)" md-item-text="item.name" md-min-length="2" md-delay='200' placeholder="Search Cards">
     <md-item-template>
       <div layout='row'>
         <span flex md-highlight-text="vm.searchText" md-highlight-flags="^i">{{item.name}}</span>
@@ -10,11 +11,11 @@
       No cards matching "{{vm.searchText}}" were found.
     </md-not-found>
   </md-autocomplete>
-  <div ng-show='vm.selectedCard' class='cardbox' layout='row' ng-style=''>
+  <div ng-show='vm.selectedCard' class='cardbox' layout='row' ng-click='vm.chooseCard()(vm.selectedCard)'>
     <div flex>
       <h4>{{vm.selectedCard.name}}</h4>
       <p>
-        <md-button class="md-fab" aria-label="{{vm.selectedCard.value}}" ng-style='{"background-color":vm.getTier().color}'>
+        <md-button class="md-fab" aria-label="{{vm.selectedCard.value}}" ng-style='{"background-color":vm.getTier().color || "black"}'>
           {{vm.selectedCard.value}}
         </md-button>
         {{vm.getTier().label}}
@@ -27,10 +28,9 @@
         <br/><span ng-if='vm.selectedCard.playerClass'>{{vm.selectedCard.playerClass}}</span>
       </p>
       <p><i>{{vm.selectedCard.flavor}}</i></p>
-
     </div>
     <div class='img-container' layout layout-align='center center'>
-       <md-progress-circular md-mode='indeterminate' ng-show='!vm.imgIsLoaded' md-diameter="120"></md-progress-circular>
+      <md-progress-circular md-mode='indeterminate' ng-show='!vm.imgIsLoaded' md-diameter="120"></md-progress-circular>
       <img ng-src='{{vm.selectedCard.img}}' imageonload loaded='vm.imgLoaded()' ng-show='vm.imgIsLoaded' />
     </div>
   </div>

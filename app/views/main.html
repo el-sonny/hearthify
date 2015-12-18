@@ -16,12 +16,17 @@
         </md-menu-item>
       </md-menu-content>
     </md-menu>
-    <!-- <md-button ng-repeat='class in vm.info.classes' class="md-raised" aria-label="class" ng-bind='class'></md-button> -->
   </div>
 </md-toolbar>
 <md-divider></md-divider>
-<div layout='row' layout-fill class='md-padding'>
-  <div card-search flex></div>
-  <div card-search flex></div>
-  <div card-search flex></div>
+<div layout='row' class='md-padding search-spot' >
+  <card-search flex ng-repeat='slot in vm.searchSlots' choose-card='vm.chooseCard' selected-card='slot.selected' search-text='slot.searchText' player-class='vm.selectedClass'></card-search>
+</div>
+<div class='md-padding' ng-show='vm.deck.length'>
+  <h3>Deck</h3>
+  <md-content flex layout='row' layout-wrap>
+    <div ng-repeat='card in vm.deck' class='deck-box'>
+      <img ng-src='{{card.img}}' />
+    </div>
+  </md-content>
 </div>
