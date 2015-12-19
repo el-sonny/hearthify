@@ -26,7 +26,7 @@
 <md-content class='md-padding' layout='row' layout-wrap layout-align='center center'>
   <div class='player-class' ng-repeat='class in vm.classes' ng-class="{selected : vm.selectedClass === class}" >
     <md-button ng-click='vm.selectClass(class)' md-class='md-fab' aria-label='Select {{class.name}}'>
-      <img ng-src='{{class.image}}' />
+      <img ng-src='/{{class.image}}' />
       <p>{{class.name}}</p>
     </md-button>
   </div>

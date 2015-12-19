@@ -55,10 +55,6 @@ function mainCtrl(deckService, hearthApi, listService, playerClassService) {
     });
   }
 
-  function getClassSrc(_class){
-    return '/images/player-classes/'+_class+'.jpg';
-  }
-
   function selectClass(_class) {
     vm.selectedClass = _class;
     listService.playerClass = _class;
