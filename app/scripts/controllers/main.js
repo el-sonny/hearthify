@@ -17,7 +17,6 @@ function mainCtrl(deckService, hearthApi, listService, playerClassService) {
   vm.activate = activate;
   vm.openMenu = openMenu;
   vm.chooseCard = chooseCard;
-  vm.getClassSrc = getClassSrc;
   vm.selectClass = selectClass;
   vm.setClasses = setClasses;
 
