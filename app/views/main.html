@@ -6,7 +6,7 @@
     <span flex></span>
     <md-menu md-offset='0 45'>
       <md-button aria-label="Open player class interactions menu" class="md-raised" ng-click="vm.openMenu($mdOpenMenu, $event)">
-        <span md-menu-origin>Selected Class : {{vm.selectedClass}}</span>
+        <span md-menu-origin>Selected Class : {{vm.selectedClass.name}}</span>
       </md-button>
       <md-menu-content width="3">
         <md-menu-item ng-repeat='class in vm.classes'>

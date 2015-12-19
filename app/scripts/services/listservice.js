@@ -10,7 +10,7 @@
 angular.module('hearthifyApp')
   .service('listService', listService);
 
-function listService($http, $q) {
+function listService($http, $q, playerClassService) {
   /* jshint validthis: true */
   var service = this;
 
@@ -19,7 +19,7 @@ function listService($http, $q) {
   service.loadList = loadList;
 
   service.lists = {};
-  service.playerClass = 'Druid';
+  service.playerClass = playerClassService.classes[0];
   activate();
 
   function activate() {
@@ -40,9 +40,9 @@ function listService($http, $q) {
 
   function checkCard(card,source){
     var deferred = $q.defer();
-    var list = service.lists[source][service.playerClass];
+    var list = service.lists[source][service.playerClass.name];
     if(!list.length){
-      service.loadList(source,service.playerClass).then(function(){
+      service.loadList(source,service.playerClass.name).then(function(){
         var result = service.checkCard(card,source);
         deferred.resolve(result);
       });

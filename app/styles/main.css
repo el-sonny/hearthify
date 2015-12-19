@@ -33,17 +33,17 @@ md-autocomplete{width:100%;}
 }
 .player-class button{
   overflow: hidden;
-  width:150px;
-  height:150px;
+  width:120px;
+  height:120px;
   border-radius: 50%;
 }
 
 .player-class img{
-  width:200px;
+  width:140px;
   height:auto;
   position:absolute;
-  top:-25px;
-  left:-25px;
+  top:-10px;
+  left:-10px;
   filter: blur(8px);
   z-index:0;
 }
